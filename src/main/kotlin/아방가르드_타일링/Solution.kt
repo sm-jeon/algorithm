@@ -22,29 +22,29 @@ fun solution(n: Int): Int {
     val result = IntArray(n)
     result[0] = 1
     for(i in 1 until n) {
-        for(j in 0 until drawType.size) {
+        for(j in drawType.indices) { // 1,2,3줄로만 도형 채우기
             if(i < j) break
-            if(i == j) result[i] += drawType[i]
-            else result[i] += result[i-j-1] * drawType[j]
+            if(i == j) result[i] += drawType[i] % 1000000007
+            else result[i] += (result[i-j-1] * drawType[j]) % 1000000007
         }
-        for(j in 3 .. i) {
-            if(j==i) {
-                print("1 * ${specialDrawType[j%3]} ")
-                result[i] += specialDrawType[j%3]
-            } else {
-                print("${result[i-j-1]} * ${specialDrawType[j%3]} + ")
-                result[i] += result[i-j-1] * specialDrawType[j%3]
+        if(i > 2) {
+            specialMemo.add(specialMemo[i-3])
+            for(j in 0..2) {
+                if(i-4-j < 0 ) {
+                    specialMemo[i] += specialDrawType[j] % 1000000007
+                    break
+                }
+                specialMemo[i] += (result[i - 4 - j] * specialDrawType[j]) % 1000000007
             }
+            result[i] += specialMemo[i]
+            result[i] %= 1000000007
         }
-        result[i] %= 1000000007
-        println()
     }
-    println(result.toList())
     return result.last()
 }
 
 class InputCase {
     companion object {
-        val n = 15
+        val n = 9
     }
 }
