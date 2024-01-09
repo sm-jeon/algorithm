@@ -22,31 +22,11 @@ dp[i] - dp[i-3] = dp[i-1] + dp[i-2]*2 + dp[i-3]*5 + dp[i-4] - dp[i-6]
 dp[i] = dp[i-1] + dp[i-2]*2 + dp[i-3]*6 + dp[i-4] - dp[i-6]
  */
 fun solution(n: Int): Int {
-    val drawType = intArrayOf(1,2,5)
-    val specialDrawType = intArrayOf(2,2,4)
-    val specialMemo = arrayListOf(0,0,0)
-    val result = IntArray(n)
-    result[0] = 1
-    for(i in 1 until n) {
-        for(j in drawType.indices) { // 1,2,3줄로만 도형 채우기
-            if(i < j) break
-            if(i == j) result[i] += drawType[i] % 1000000007
-            else result[i] += (result[i-j-1] * drawType[j]) % 1000000007
-        }
-        if(i > 2) {
-            specialMemo.add(specialMemo[i-3])
-            for(j in 0..2) {
-                if(i-4-j < 0 ) {
-                    specialMemo[i] += specialDrawType[j] % 1000000007
-                    break
-                }
-                specialMemo[i] += (result[i - 4 - j] * specialDrawType[j]) % 1000000007
-            }
-            result[i] += specialMemo[i]
-            result[i] %= 1000000007
-        }
+    val dp = arrayListOf<Long>(1,1,3,10,23,62)
+    while(dp.size < n+1) {
+        dp.add((dp[dp.size-1] + dp[dp.size-2]*2 + dp[dp.size-3]*6 + dp[dp.size-4] - dp[dp.size-6] + 1000000007) % 1000000007)
     }
-    return result.last()
+    return dp[n].toInt()
 }
 
 class InputCase {
