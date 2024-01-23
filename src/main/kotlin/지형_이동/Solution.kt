@@ -3,16 +3,26 @@ package 지형_이동
 import kotlin.math.abs
 import kotlin.math.min
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/62050
+/*
+문제 URL
+https://school.programmers.co.kr/learn/courses/30/lessons/62050
+티스토리 URL
+https://sm-jeon-develop.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%A7%80%ED%98%95-%EC%9D%B4%EB%8F%99
+*/
 fun solution(landHeightMap: Array<IntArray>, height: Int): Int {
     val landGroupMap = Array(landHeightMap.size) { Array(landHeightMap.size){0}.toIntArray() }
     val edgeMap = mutableMapOf<Pair<Int, Int>, Int>()
+    val queue = ArrayDeque<Pair<Position?, Int>>()
     var groupCount = 0
     for(y in landHeightMap.indices) {
         for(x in landHeightMap.indices) {
             if(landGroupMap[y][x]==0) {
                 groupCount++
-                makeGroupByDfs(landHeightMap, landGroupMap, edgeMap, Position(x, y, landHeightMap.size-1), groupCount, height, -1)
+                queue.add(Position(x,y,landHeightMap.size-1) to -1)
+                while(queue.isNotEmpty()) {
+                    val pair = queue.removeFirst()
+                    makeGroupByBfs(landHeightMap, landGroupMap, edgeMap, queue, pair.first, groupCount, height, pair.second)
+                }
             }
         }
     }
@@ -43,7 +53,7 @@ class Position(
 
 fun Array<IntArray>.findByPosition(position: Position) = this[position.y][position.x]
 
-fun makeGroupByDfs(landHeightMap: Array<IntArray>, landGroupMap: Array<IntArray>, edgeMap: MutableMap<Pair<Int,Int>,Int>, position: Position?, groupName: Int, maxHeight: Int, befHeight: Int) {
+fun makeGroupByBfs(landHeightMap: Array<IntArray>, landGroupMap: Array<IntArray>, edgeMap: MutableMap<Pair<Int,Int>,Int>, queue: ArrayDeque<Pair<Position?, Int>>, position: Position?, groupName: Int, maxHeight: Int, befHeight: Int) {
     if(position == null) return
     val currentGroupName = landGroupMap.findByPosition(position)
     val currentHeight = landHeightMap.findByPosition(position)
@@ -59,10 +69,10 @@ fun makeGroupByDfs(landHeightMap: Array<IntArray>, landGroupMap: Array<IntArray>
 
     landGroupMap[position.y][position.x] = groupName
 
-    makeGroupByDfs(landHeightMap, landGroupMap, edgeMap, position.up(), groupName, maxHeight, currentHeight)
-    makeGroupByDfs(landHeightMap, landGroupMap, edgeMap, position.left(), groupName, maxHeight, currentHeight)
-    makeGroupByDfs(landHeightMap, landGroupMap, edgeMap, position.down(), groupName, maxHeight, currentHeight)
-    makeGroupByDfs(landHeightMap, landGroupMap, edgeMap, position.right(), groupName, maxHeight, currentHeight)
+    queue.add(position.up() to currentHeight)
+    queue.add(position.down() to currentHeight)
+    queue.add(position.left() to currentHeight)
+    queue.add(position.right() to currentHeight)
 }
 
 fun kruskal(edgeList: List<Edge>, groupCount: Int): Int {
