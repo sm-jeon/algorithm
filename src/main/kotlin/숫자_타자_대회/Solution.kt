@@ -2,7 +2,12 @@ package 숫자_타자_대회
 
 import kotlin.math.min
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/136797
+/*
+문제 URL
+https://school.programmers.co.kr/learn/courses/30/lessons/136797
+티스토리 URL
+https://sm-jeon-develop.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%88%AB%EC%9E%90-%ED%83%80%EC%9E%90-%EB%8C%80%ED%9A%8C
+ */
 
 val cost = arrayOf(
     intArrayOf(1,7,6,7,5,4,5,3,2,3,),

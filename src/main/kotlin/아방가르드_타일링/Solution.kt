@@ -2,7 +2,12 @@ package 아방가르드_타일링
 
 import kotlin.math.min
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/181186
+/*
+문제 URL
+https://school.programmers.co.kr/learn/courses/30/lessons/181186
+티스토리 URL
+https://sm-jeon-develop.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%95%84%EB%A5%B4%EB%B0%A9%EA%B7%B8%EB%93%9C-%ED%83%80%EC%9D%BC%EB%A7%81
+ */
 // 1 : 세로 하나: 1 => drawType[1]
 // 2 : 기억자 두개 2 => drawType[2] + drawType[1] / drawType[1] + drawType[2]
 // 3 : 기억자 두개 가로선 하나 4 + 가로선 3개 1 => drawType[3] / drawType[2] + drawType[1] / drawType[1] + drawType[2] / drawType[1] + drawType[1] + drawType[1]

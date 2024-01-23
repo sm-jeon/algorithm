@@ -3,7 +3,12 @@ package 연속_펄스_부분_수열의_합
 import kotlin.math.max
 import kotlin.collections.max
 
-// https://school.programmers.co.kr/learn/courses/30/lessons/161988
+/*
+문제 URL
+https://school.programmers.co.kr/learn/courses/30/lessons/161988
+티스토리 URL
+https://sm-jeon-develop.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%97%B0%EC%86%8D-%ED%8E%84%EC%8A%A4-%EB%B6%80%EB%B6%84-%EC%88%98%EC%97%B4%EC%9D%98-%ED%95%A9
+ */
 fun solution(sequence: IntArray): Long {
     val mapper1 = intArrayOf(1,-1)
     val case1 = sequence.mapIndexed { index, i ->

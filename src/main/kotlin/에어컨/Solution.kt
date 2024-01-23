@@ -1,6 +1,11 @@
 package 에어컨
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/214289
+/*
+문제 URL
+https://school.programmers.co.kr/learn/courses/30/lessons/214289
+티스토리 URL
+https://sm-jeon-develop.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%97%90%EC%96%B4%EC%BB%A8
+ */
 /*
 시간이 갈때마다의 경우의 수: 3가지.
     1. 에어컨을 가동해 희망온도에 가까워지는 경우 (a 전력 소비)

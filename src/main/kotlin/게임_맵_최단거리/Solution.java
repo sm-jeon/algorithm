@@ -3,7 +3,13 @@ package 게임_맵_최단거리;
 import java.util.LinkedList;
 import java.util.Queue;
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/1844?language=java
+/*
+문제 URL
+https://school.programmers.co.kr/learn/courses/30/lessons/1844?language=java
+티스토리 URL
+https://sm-jeon-develop.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EA%B2%8C%EC%9E%84-%EB%A7%B5-%EC%B5%9C%EB%8B%A8%EA%B1%B0%EB%A6%AC
+ */
+
 public class Solution {
     public static final int[][] maps = {
             {1,0,0,0,0,0},

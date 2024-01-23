@@ -1,6 +1,11 @@
 package 네트워크
 
-// https://school.programmers.co.kr/learn/courses/30/lessons/43162
+/*
+문제 URL
+https://school.programmers.co.kr/learn/courses/30/lessons/43162
+티스토리 URL
+https://sm-jeon-develop.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC
+ */
 fun solution(n: Int, computers: Array<IntArray>): Int {
     val visited = BooleanArray(n) { false }
     var result = 0

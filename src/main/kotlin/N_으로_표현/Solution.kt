@@ -2,8 +2,13 @@ package N_으로_표현
 
 import kotlin.math.pow
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/42895?language=kotlin
-//
+/*
+문제 URL
+https://school.programmers.co.kr/learn/courses/30/lessons/42895?language=kotlin
+티스토리 URL
+https://sm-jeon-develop.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-N%EC%9C%BC%EB%A1%9C-%ED%91%9C%ED%98%84
+ */
+
 fun solution(N: Int, num: Int): Int {
     val arr = Array<MutableSet<Int>>(9) { mutableSetOf() }
     for(i in 1..8) {

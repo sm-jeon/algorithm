@@ -3,7 +3,12 @@ package two차원_동전_뒤집기
 import kotlin.math.min
 import kotlin.math.pow
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/131703
+/*
+문제 URL
+https://school.programmers.co.kr/learn/courses/30/lessons/131703
+티스토리 URL
+https://sm-jeon-develop.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-2%EC%B0%A8%EC%9B%90-%EB%8F%99%EC%A0%84-%EB%92%A4%EC%A7%91%EA%B8%B0
+ */
 fun solution(beginning: Array<IntArray>, target: Array<IntArray>): Int {
     val diff = buildDiff(beginning, target)
 
