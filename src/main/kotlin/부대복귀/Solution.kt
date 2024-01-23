@@ -17,8 +17,7 @@ fun solution(n: Int, roads: Array<IntArray>, sources: IntArray, destination: Int
     val queue = ArrayDeque<Pair<Int, Int>>()
     queue.add(destination to 0)
 
-    while(queue.isNotEmpty()) {
-        val (node, cost) = queue.removeFirst()
+    for((node, cost) in queue) {
         if(visit[node]) continue
         visit[node] = true
 

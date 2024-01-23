@@ -15,7 +15,6 @@ fun solution(tickets: Array<Array<String>>): Array<String> {
     map.forEach {
         it.value.sort()
     }
-
     return dfs(map, visitedMap, "ICN", 0, tickets.size).toTypedArray().reversedArray()
 }
 
@@ -27,7 +26,7 @@ fun dfs(map: Map<String, List<String>>, visitedMap: Map<String, ArrayList<Boolea
         return arrayListOf(start)
     }
 
-    for(i in 0 until tickets.size) {
+    for(i in tickets.indices) {
         if(!visitedList[i]) {
             visitedList[i] = true
             val result = dfs(map, visitedMap, tickets[i], depth + 1, ticketSize)
@@ -50,11 +49,5 @@ class InputCase {
             arrayOf("ATL", "ICN"),
             arrayOf("ATL", "SFO"),
         )
-    //    = arrayOf(
-    //        arrayOf("ICN", "AAA"),
-    //        arrayOf("AAA", "BBB"),
-    //        arrayOf("BBB", "AAA"),
-    //        arrayOf("AAA", "BBB"),
-    //    )
     }
 }
